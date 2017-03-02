@@ -36,8 +36,7 @@ function addPhoto(albumName) {
   const ext = file.name.split('.').pop().toLowerCase();
   s3.upload({
     Key: `${generateUUID()}.${ext}`,
-    Body: file,
-    ACL: 'public-read'
+    Body: file
   }, function(err, data) {
     if (err) {
       return displayMessage(`There was an error uploading your photo: ${err.message}`);
